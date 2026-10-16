@@ -4,14 +4,10 @@ import {
   Mail,
   Phone,
   Building,
-  Calendar,
   DollarSign,
-  UserCheck,
   Send,
   MessageSquare,
   Activity,
-  CheckCircle,
-  ExternalLink,
   MessageCircle,
 } from 'lucide-react';
 import type { Lead, LeadPriority, LeadStatus, User } from '../../types/api';

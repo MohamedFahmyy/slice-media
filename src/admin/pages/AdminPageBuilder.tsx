@@ -16,11 +16,9 @@ import {
   Smartphone,
   Tablet,
   Monitor,
-  Check,
   X,
-  Sparkles,
 } from 'lucide-react';
-import type { Page, PageRevision, PageSection } from '../../types/api';
+import type { Page, PageSection } from '../../types/api';
 import { api } from '../../services/api';
 import { useAdmin } from '../AdminContext';
 
@@ -41,7 +39,6 @@ export const AdminPageBuilder: React.FC<AdminPageBuilderProps> = ({ pageId, onBa
   const [showAddModal, setShowAddModal] = useState(false);
   const [showRevisionModal, setShowRevisionModal] = useState(false);
   const [previewDevice, setPreviewDevice] = useState<'desktop' | 'tablet' | 'mobile'>('desktop');
-  const [previewMode, setPreviewMode] = useState(false);
 
   const availableSectionTemplates = [
     {
