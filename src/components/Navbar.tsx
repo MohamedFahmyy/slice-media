@@ -49,10 +49,14 @@ export const Navbar: React.FC<NavbarProps> = ({
       <header
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           mobileMenuOpen ? 'hidden' : 'block'
-        } ${isScrolled ? 'py-3' : 'py-5'}`}
+        } ${
+          isScrolled
+            ? 'bg-[#050505]/95 backdrop-blur-xl border-b border-white/10 py-3 sm:py-3 sm:bg-transparent sm:backdrop-blur-none sm:border-0'
+            : 'bg-[#050505]/75 backdrop-blur-md py-3 sm:py-5 sm:bg-transparent sm:backdrop-blur-none'
+        }`}
       >
-        <div className="site-container">
-          <nav className="nav-capsule flex items-center justify-between px-4 sm:px-6 py-2.5 sm:py-3">
+        <div className="w-full sm:site-container px-4 sm:px-6 md:px-8">
+          <nav className="flex items-center justify-between py-1 sm:py-2.5 sm:px-6 sm:nav-capsule">
             {/* Logo */}
             <a
               href="#home"

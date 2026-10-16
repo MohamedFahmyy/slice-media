@@ -115,35 +115,35 @@ export const Contact: React.FC<ContactProps> = ({
   );
 
   return (
-    <section id="contact" className="py-28 md:py-36 lg:py-44 bg-[#050505] relative border-b border-white/5">
+    <section id="contact" className="py-14 sm:py-24 md:py-36 lg:py-44 bg-[#050505] relative border-b border-white/5">
       {/* Glow */}
-      <div className="absolute top-1/2 right-10 w-[550px] h-[550px] bg-[#D50000]/12 blur-[170px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/2 right-10 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-[#D50000]/12 blur-[150px] pointer-events-none rounded-full" />
 
       <div className="site-container relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-20 md:mb-24 text-left rtl:text-right">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D50000]/10 border border-[#D50000]/30 text-[#FF3333] text-xs font-bold uppercase tracking-wider mb-5">
+        <div className="max-w-3xl mb-12 sm:mb-20 md:mb-24 text-left rtl:text-right">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-[#D50000]/10 border border-[#D50000]/30 text-[#FF3333] text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-4 sm:mb-5">
             <Sparkles className="w-3.5 h-3.5" />
             <span>{content.contactSection.badge}</span>
           </div>
 
-          <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl text-white tracking-tight leading-none mb-7">
+          <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-none mb-4 sm:mb-7">
             {content.contactSection.headline}
           </h2>
 
-          <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
+          <p className="text-sm sm:text-lg text-neutral-300 leading-relaxed">
             {content.contactSection.subheadline}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16">
           
           {/* Left Column: Form */}
           <div className="lg:col-span-7">
             {submittedRefId ? (
               /* Success / Acknowledgment State */
-              <div className="p-10 sm:p-12 rounded-2xl bg-[#0F0F0F] border border-[#D50000]/50 shadow-2xl animate-in fade-in duration-300 text-left rtl:text-right">
+              <div className="p-6 sm:p-12 rounded-2xl bg-[#0F0F0F] border border-[#D50000]/50 shadow-2xl animate-in fade-in duration-300 text-left rtl:text-right">
                 <div className="w-14 h-14 rounded-2xl bg-[#D50000]/20 border border-[#D50000]/40 flex items-center justify-center text-[#D50000] mb-6">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
@@ -214,7 +214,7 @@ export const Contact: React.FC<ContactProps> = ({
               <form
                 onSubmit={handleSubmit}
                 noValidate
-                className="p-9 sm:p-12 rounded-2xl bg-[#0E0E0E] border border-white/10 shadow-xl space-y-7 text-left rtl:text-right"
+                className="p-5 sm:p-9 md:p-12 rounded-2xl bg-[#0E0E0E] border border-white/10 shadow-xl space-y-5 sm:space-y-7 text-left rtl:text-right"
               >
                 {/* Full Name & Email */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">

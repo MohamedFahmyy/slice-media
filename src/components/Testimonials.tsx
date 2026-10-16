@@ -8,21 +8,21 @@ interface TestimonialsProps {
 
 export const Testimonials: React.FC<TestimonialsProps> = ({ content }) => {
   return (
-    <section className="py-28 md:py-36 lg:py-44 bg-[#0A0A0A] relative border-b border-white/5">
+    <section className="py-14 sm:py-24 md:py-36 lg:py-44 bg-[#0A0A0A] relative border-b border-white/5">
       <div className="site-container">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-20 md:mb-24 text-left rtl:text-right">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D50000]/10 border border-[#D50000]/30 text-[#FF3333] text-xs font-bold uppercase tracking-wider mb-5">
+        <div className="max-w-3xl mb-12 sm:mb-20 md:mb-24 text-left rtl:text-right">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-[#D50000]/10 border border-[#D50000]/30 text-[#FF3333] text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-4 sm:mb-5">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>{content.testimonialsSection.badge}</span>
           </div>
 
-          <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl text-white tracking-tight leading-none mb-7">
+          <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-none mb-4 sm:mb-7">
             {content.testimonialsSection.headline}
           </h2>
 
-          <p className="text-base sm:text-lg text-neutral-300 leading-relaxed mb-4">
+          <p className="text-sm sm:text-lg text-neutral-300 leading-relaxed mb-3 sm:mb-4">
             {content.testimonialsSection.subheadline}
           </p>
 
@@ -32,11 +32,11 @@ export const Testimonials: React.FC<TestimonialsProps> = ({ content }) => {
         </div>
 
         {/* 3 Partnership Principles Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-8 lg:gap-10">
           {content.testimonialsSection.items.map((item, idx) => (
             <div
               key={idx}
-              className="p-9 sm:p-11 rounded-2xl bg-[#121212] border border-white/10 hover:border-[#D50000]/40 transition-all duration-300 flex flex-col justify-between"
+              className="p-5 sm:p-8 md:p-11 rounded-2xl bg-[#121212] border border-white/10 hover:border-[#D50000]/40 transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between mb-6">

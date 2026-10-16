@@ -34,11 +34,11 @@ export const Footer: React.FC<FooterProps> = ({ content, onNavigate, onOpenAdmin
   ];
 
   return (
-    <footer className="bg-[#050505] text-neutral-400 pt-20 pb-12 border-t border-white/10 relative">
+    <footer className="bg-[#050505] text-neutral-400 pt-14 pb-8 sm:pt-20 sm:pb-12 border-t border-white/10 relative">
       <div className="site-container">
         
         {/* Top Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 mb-16 text-left rtl:text-right">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-12 mb-10 sm:mb-16 text-left rtl:text-right">
           
           {/* Brand & Agency Bio */}
           <div className="lg:col-span-5 space-y-6">
@@ -173,12 +173,12 @@ export const Footer: React.FC<FooterProps> = ({ content, onNavigate, onOpenAdmin
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
+        <div className="pt-6 sm:pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs">
           <div className="text-neutral-400 text-center md:text-left rtl:md:text-right">
             {content.footer.copyright}
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4">
             {onOpenAdmin && (
               <button
                 onClick={onOpenAdmin}

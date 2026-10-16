@@ -14,35 +14,35 @@ export const Portfolio: React.FC<PortfolioProps> = ({
   const [selectedProject, setSelectedProject] = useState<PortfolioItem | null>(null);
 
   return (
-    <section id="work" className="py-28 md:py-36 lg:py-44 bg-[#0A0A0A] relative border-b border-white/5">
+    <section id="work" className="py-14 sm:py-24 md:py-36 lg:py-44 bg-[#0A0A0A] relative border-b border-white/5">
       {/* Glow */}
-      <div className="absolute top-1/3 right-0 w-[550px] h-[550px] bg-[#D50000]/10 blur-[160px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/3 right-0 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-[#D50000]/10 blur-[150px] pointer-events-none rounded-full" />
 
       <div className="site-container relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-20 md:mb-24 text-left rtl:text-right">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D50000]/10 border border-[#D50000]/30 text-[#FF3333] text-xs font-bold uppercase tracking-wider mb-5">
+        <div className="max-w-3xl mb-12 sm:mb-20 md:mb-24 text-left rtl:text-right">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-[#D50000]/10 border border-[#D50000]/30 text-[#FF3333] text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-4 sm:mb-5">
             <Sparkles className="w-3.5 h-3.5" />
             <span>{content.portfolioSection.badge}</span>
           </div>
 
-          <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl text-white tracking-tight leading-none mb-7">
+          <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-none mb-4 sm:mb-7">
             {content.portfolioSection.headline}
           </h2>
 
-          <p className="text-base sm:text-lg text-neutral-300 leading-relaxed mb-6">
+          <p className="text-sm sm:text-lg text-neutral-300 leading-relaxed mb-4 sm:mb-6">
             {content.portfolioSection.subheadline}
           </p>
 
-          <div className="p-4 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm text-neutral-300 flex items-center gap-3">
+          <div className="p-3.5 sm:p-4 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm text-neutral-300 flex items-center gap-2.5 sm:gap-3">
             <Layers className="w-4 h-4 text-[#D50000] flex-shrink-0" />
             <span>{content.portfolioSection.conceptNote}</span>
           </div>
         </div>
 
         {/* Portfolio Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-10">
           {content.portfolioSection.items.map((project) => (
             <div
               key={project.id}

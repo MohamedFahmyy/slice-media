@@ -10,34 +10,34 @@ export const OurProcess: React.FC<OurProcessProps> = ({ content }) => {
   const [activeStep, setActiveStep] = useState(0);
 
   return (
-    <section id="process" className="py-28 md:py-36 lg:py-44 bg-[#0A0A0A] relative border-b border-white/5">
+    <section id="process" className="py-14 sm:py-24 md:py-36 lg:py-44 bg-[#0A0A0A] relative border-b border-white/5">
       <div className="site-container">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-20 md:mb-24 text-left rtl:text-right">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#D50000]/10 border border-[#D50000]/30 text-[#FF3333] text-xs font-bold uppercase tracking-wider mb-5">
+        <div className="max-w-3xl mb-12 sm:mb-20 md:mb-24 text-left rtl:text-right">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-[#D50000]/10 border border-[#D50000]/30 text-[#FF3333] text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-4 sm:mb-5">
             <Sparkles className="w-3.5 h-3.5" />
             <span>{content.processSection.badge}</span>
           </div>
 
-          <h2 className="font-headline text-4xl sm:text-5xl md:text-6xl text-white tracking-tight leading-none mb-7">
+          <h2 className="font-headline text-3xl sm:text-5xl md:text-6xl text-white tracking-tight leading-none mb-4 sm:mb-7">
             {content.processSection.headline}
           </h2>
 
-          <p className="text-base sm:text-lg text-neutral-300 leading-relaxed">
+          <p className="text-sm sm:text-lg text-neutral-300 leading-relaxed">
             {content.processSection.subheadline}
           </p>
         </div>
 
         {/* Process Horizontal Navigation & Interactive Steps */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8 mb-10 sm:mb-16">
           {content.processSection.steps.map((step, idx) => {
             const isSelected = activeStep === idx;
             return (
               <div
                 key={idx}
                 onClick={() => setActiveStep(idx)}
-                className={`cursor-pointer rounded-2xl p-8 sm:p-9 border transition-all duration-300 relative flex flex-col justify-between ${
+                className={`cursor-pointer rounded-2xl p-5 sm:p-8 md:p-9 border transition-all duration-300 relative flex flex-col justify-between ${
                   isSelected
                     ? 'bg-[#181818] border-[#D50000] shadow-[0_10px_30px_rgba(213,0,0,0.18)]'
                     : 'bg-[#101010] border-white/10 hover:border-white/20'

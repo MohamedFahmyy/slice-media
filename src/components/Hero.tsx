@@ -28,45 +28,46 @@ export const Hero: React.FC<HeroProps> = ({
   ];
 
   return (
-    <section id="home" className="relative pt-44 sm:pt-48 md:pt-52 pb-20 md:pb-28 overflow-hidden bg-[#050505]">
+    <section id="home" className="relative pt-36 sm:pt-44 md:pt-52 pb-14 sm:pb-20 md:pb-28 overflow-hidden bg-[#050505]">
       {/* Ambient Red Atmospheric Glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[550px] md:w-[750px] h-[350px] md:h-[450px] bg-[#D50000]/15 blur-[140px] pointer-events-none rounded-full" />
-      <div className="absolute top-10 right-0 w-[300px] h-[300px] bg-[#D50000]/10 blur-[100px] pointer-events-none rounded-full" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[550px] md:w-[750px] h-[250px] sm:h-[350px] md:h-[450px] bg-[#D50000]/15 blur-[120px] pointer-events-none rounded-full" />
+      <div className="absolute top-10 right-0 w-[200px] sm:w-[300px] h-[200px] sm:h-[300px] bg-[#D50000]/10 blur-[90px] pointer-events-none rounded-full" />
       
       {/* Background Subtle Grid Texture */}
       <div className="absolute inset-0 bg-grid-subtle opacity-40 pointer-events-none" />
 
       <div className="site-container relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center">
           
           {/* Left Column: Bold Editorial Typography & CTAs */}
           <div className="lg:col-span-7 flex flex-col justify-center text-left rtl:text-right">
             
             {/* Top Subhead Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D50000]/10 border border-[#D50000]/30 text-[#FF3333] text-xs font-bold uppercase tracking-wider mb-7 sm:mb-8 w-fit shadow-[0_0_12px_rgba(213,0,0,0.2)]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D50000]/10 border border-[#D50000]/30 text-[#FF3333] text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-5 sm:mb-8 w-fit shadow-[0_0_12px_rgba(213,0,0,0.2)]">
               <span className="pulse-dot" />
               <span>{content.hero.badge}</span>
             </div>
 
             {/* Massive Editorial Headline */}
-            <h1 className="font-headline text-5xl sm:text-6xl md:text-7xl xl:text-8xl text-white leading-[0.95] rtl:leading-[1.18] tracking-tight mb-8">
+            <h1 className="font-headline text-3xl xs:text-4xl sm:text-6xl md:text-7xl xl:text-8xl text-white leading-[0.98] rtl:leading-[1.18] tracking-tight mb-5 sm:mb-8">
               {content.hero.headlinePart1}{' '}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D50000] via-[#FF2B2B] to-[#FF6B6B] italic font-black underline decoration-[#D50000]/50 decoration-wavy">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#D50000] via-[#FF2B2B] to-[#FF6B6B] italic font-black relative inline-block">
                 {content.hero.headlineHighlight}
+                <span className="absolute left-0 bottom-0.5 w-full h-[3px] bg-[#D50000] rounded-full opacity-80" />
               </span>{' '}
               {content.hero.headlinePart2}
             </h1>
 
             {/* Supporting Text */}
-            <p className="text-base sm:text-lg md:text-xl text-neutral-300 leading-relaxed max-w-2xl mb-10 font-normal">
+            <p className="text-sm xs:text-base sm:text-lg md:text-xl text-neutral-300 leading-relaxed max-w-2xl mb-8 sm:mb-10 font-normal">
               {content.hero.supportingText}
             </p>
 
             {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-5 mb-12">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-5 mb-10 sm:mb-12">
               <button
                 onClick={onStartProject}
-                className="btn-primary group"
+                className="btn-primary w-full sm:w-auto py-3.5 px-6 sm:py-4 sm:px-8 text-center justify-center group"
               >
                 <span>{content.hero.primaryCta}</span>
                 <ArrowUpRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -74,7 +75,7 @@ export const Hero: React.FC<HeroProps> = ({
 
               <button
                 onClick={onExploreWork}
-                className="btn-secondary group"
+                className="btn-secondary w-full sm:w-auto py-3.5 px-6 sm:py-4 sm:px-8 text-center justify-center group"
               >
                 <span>{content.hero.secondaryCta}</span>
                 <span className="w-2 h-2 rounded-full bg-[#D50000] transition-transform duration-300 group-hover:scale-150" />

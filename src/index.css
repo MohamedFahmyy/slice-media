@@ -118,8 +118,15 @@ body {
   max-width: var(--container-max);
   margin-left: auto;
   margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 480px) {
+  .site-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -146,16 +153,23 @@ body {
   color: #FFFFFF;
   font-family: var(--font-sans);
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 0.9rem 2rem;
+  padding: 0.85rem 1.6rem;
   border-radius: 9999px;
   border: 1px solid var(--color-slice-red);
   cursor: pointer;
   transition: all 0.25s var(--ease-out-expo);
   box-shadow: 0 4px 20px var(--color-slice-red-glow);
   text-decoration: none;
+}
+
+@media (min-width: 640px) {
+  .btn-primary {
+    padding: 0.9rem 2rem;
+    font-size: 0.95rem;
+  }
 }
 
 .btn-primary:hover {
@@ -177,15 +191,22 @@ body {
   color: #FFFFFF;
   font-family: var(--font-sans);
   font-weight: 600;
-  font-size: 0.95rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  padding: 0.9rem 2rem;
+  padding: 0.85rem 1.6rem;
   border-radius: 9999px;
   border: 1px solid rgba(255, 255, 255, 0.15);
   cursor: pointer;
   transition: all 0.25s var(--ease-out-expo);
   text-decoration: none;
+}
+
+@media (min-width: 640px) {
+  .btn-secondary {
+    padding: 0.9rem 2rem;
+    font-size: 0.95rem;
+  }
 }
 
 .btn-secondary:hover {
@@ -303,12 +324,19 @@ body {
   background-color: #0F0F0F;
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: #FFFFFF;
-  border-radius: 14px;
-  padding: 1.15rem 1.4rem;
+  border-radius: 12px;
+  padding: 0.85rem 1.1rem;
   font-family: var(--font-sans);
-  font-size: 1rem;
+  font-size: 1rem; /* 16px ensures no iOS zoom */
   transition: all 0.25s ease;
   outline: none;
+}
+
+@media (min-width: 640px) {
+  .form-input {
+    border-radius: 14px;
+    padding: 1.15rem 1.4rem;
+  }
 }
 
 .form-input:focus {
