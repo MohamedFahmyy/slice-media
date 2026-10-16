@@ -4,9 +4,10 @@ import type { SiteContent } from '../data/content';
 interface FooterProps {
   content: SiteContent;
   onNavigate: (href: string) => void;
+  onOpenAdmin?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ content, onNavigate }) => {
+export const Footer: React.FC<FooterProps> = ({ content, onNavigate, onOpenAdmin }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -177,13 +178,25 @@ export const Footer: React.FC<FooterProps> = ({ content, onNavigate }) => {
             {content.footer.copyright}
           </div>
 
-          <div className="text-neutral-400 text-center md:text-right rtl:md:text-left max-w-md">
-            {content.footer.disclaimer}
+          <div className="flex items-center gap-4">
+            {onOpenAdmin && (
+              <button
+                onClick={onOpenAdmin}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-neutral-400 hover:text-white transition-colors cursor-pointer text-[11px] font-mono uppercase tracking-wider"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#D50000] animate-pulse" />
+                Staff Portal
+              </button>
+            )}
+
+            <div className="text-neutral-400 text-center md:text-right rtl:md:text-left max-w-xs sm:max-w-md">
+              {content.footer.disclaimer}
+            </div>
           </div>
 
           <button
             onClick={scrollToTop}
-            className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#D50000] hover:border-[#D50000] transition-all flex-shrink-0"
+            className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white hover:bg-[#D50000] hover:border-[#D50000] transition-all flex-shrink-0 cursor-pointer"
             aria-label="Back to top"
           >
             <ArrowUp className="w-4 h-4" />

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { CheckCircle2, MessageCircle, Mail, MapPin, Sparkles, Send, RefreshCw, AlertCircle } from 'lucide-react';
 import type { SiteContent } from '../data/content';
+import { api } from '../services/api';
 
 interface ContactProps {
   content: SiteContent;
@@ -53,23 +54,38 @@ export const Contact: React.FC<ContactProps> = ({
     return Object.keys(errs).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!validate()) return;
 
     setIsSubmitting(true);
+    let assignedCode = `SLC-${Math.floor(10000 + Math.random() * 90000)}`;
 
-    // Simulate realistic asynchronous transmission
-    setTimeout(() => {
-      const generatedId = `SLC-${Math.floor(10000 + Math.random() * 90000)}`;
+    try {
+      const res = await api.submitLead({
+        full_name: formData.fullName,
+        email: formData.email,
+        company: formData.company,
+        requested_service: formData.service,
+        budget_range: formData.budget,
+        project_description: formData.details,
+        preferred_language: (document.documentElement.lang === 'ar' ? 'ar' : 'en') as 'en' | 'ar',
+        referring_page: window.location.pathname,
+      });
+      if (res && res.reference_code) {
+        assignedCode = res.reference_code;
+      }
+    } catch (err) {
+      console.warn('API submission fallback to local storage:', err);
+    } finally {
       setIsSubmitting(false);
-      setSubmittedRefId(generatedId);
-      
+      setSubmittedRefId(assignedCode);
+
       // Store in localStorage for frontend persistence/intake inspection
       try {
         const existingInquiries = JSON.parse(localStorage.getItem('slice_inquiries') || '[]');
         existingInquiries.push({
-          id: generatedId,
+          id: assignedCode,
           timestamp: new Date().toISOString(),
           ...formData,
         });
@@ -77,7 +93,7 @@ export const Contact: React.FC<ContactProps> = ({
       } catch (e) {
         console.warn('LocalStorage error', e);
       }
-    }, 1200);
+    }
   };
 
   const handleReset = () => {

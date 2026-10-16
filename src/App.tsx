@@ -12,8 +12,12 @@ import { ValueProposition } from './components/ValueProposition';
 import { Testimonials } from './components/Testimonials';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { AdminProvider } from './admin/AdminContext';
+import { AdminRoot } from './admin/AdminRoot';
 
-export const App: React.FC = () => {
+const PublicSite: React.FC<{
+  onOpenAdmin: () => void;
+}> = ({ onOpenAdmin }) => {
   const [lang, setLang] = useState<Language>('en');
   const [preselectedService, setPreselectedService] = useState<string>('');
 
@@ -115,8 +119,55 @@ export const App: React.FC = () => {
       <Footer
         content={content}
         onNavigate={scrollToSection}
+        onOpenAdmin={onOpenAdmin}
       />
     </div>
+  );
+};
+
+export const App: React.FC = () => {
+  const [isAdminView, setIsAdminView] = useState<boolean>(() => {
+    return (
+      window.location.pathname.startsWith('/admin') ||
+      window.location.hash.startsWith('#admin')
+    );
+  });
+
+  useEffect(() => {
+    const handleUrlChange = () => {
+      const isNowAdmin =
+        window.location.pathname.startsWith('/admin') ||
+        window.location.hash.startsWith('#admin');
+      setIsAdminView(isNowAdmin);
+    };
+
+    window.addEventListener('popstate', handleUrlChange);
+    window.addEventListener('hashchange', handleUrlChange);
+
+    return () => {
+      window.removeEventListener('popstate', handleUrlChange);
+      window.removeEventListener('hashchange', handleUrlChange);
+    };
+  }, []);
+
+  const navigateToAdmin = () => {
+    window.history.pushState(null, '', '#admin');
+    setIsAdminView(true);
+  };
+
+  const navigateToSite = () => {
+    window.history.pushState(null, '', '#');
+    setIsAdminView(false);
+  };
+
+  return (
+    <AdminProvider>
+      {isAdminView ? (
+        <AdminRoot onBackToSite={navigateToSite} />
+      ) : (
+        <PublicSite onOpenAdmin={navigateToAdmin} />
+      )}
+    </AdminProvider>
   );
 };
 
