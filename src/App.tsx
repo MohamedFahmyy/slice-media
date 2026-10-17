@@ -28,6 +28,7 @@ const PublicSite: React.FC<{
     if ('scrollRestoration' in window.history) {
       window.history.scrollRestoration = 'manual';
     }
+    window.scrollTo(0, 0);
     // Update HTML dir and lang attributes
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
     document.documentElement.lang = lang;
@@ -38,9 +39,15 @@ const PublicSite: React.FC<{
   };
 
   const scrollToSection = (sectionId: string) => {
+    if (sectionId === '#home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const el = document.querySelector(sectionId);
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+      const navOffset = window.innerWidth < 640 ? 70 : 90;
+      const targetPos = el.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top: Math.max(0, targetPos), behavior: 'smooth' });
     }
   };
 

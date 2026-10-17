@@ -51,9 +51,9 @@ export const Footer: React.FC<FooterProps> = ({ content, onNavigate, onOpenAdmin
               className="inline-block"
             >
               <img
-                src="/assets/slice-logo-full.png"
+                src="/assets/slice-wordmark.png"
                 alt="Slice Marketing Agency"
-                className="h-10 sm:h-12 w-auto object-contain"
+                className="h-9 sm:h-11 w-auto object-contain"
               />
             </a>
 

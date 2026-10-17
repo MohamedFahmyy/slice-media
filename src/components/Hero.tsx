@@ -28,7 +28,7 @@ export const Hero: React.FC<HeroProps> = ({
   ];
 
   return (
-    <section id="home" className="relative pt-36 sm:pt-44 md:pt-52 pb-14 sm:pb-20 md:pb-28 overflow-hidden bg-[#050505]">
+    <section id="home" className="relative pt-28 xs:pt-32 sm:pt-44 md:pt-52 pb-14 sm:pb-20 md:pb-28 overflow-hidden bg-[#050505]">
       {/* Ambient Red Atmospheric Glows */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[550px] md:w-[750px] h-[250px] sm:h-[350px] md:h-[450px] bg-[#D50000]/15 blur-[120px] pointer-events-none rounded-full" />
       <div className="absolute top-10 right-0 w-[200px] sm:w-[300px] h-[200px] sm:h-[300px] bg-[#D50000]/10 blur-[90px] pointer-events-none rounded-full" />

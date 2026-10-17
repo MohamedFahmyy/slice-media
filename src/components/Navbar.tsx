@@ -38,36 +38,42 @@ export const Navbar: React.FC<NavbarProps> = ({
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setMobileMenuOpen(false);
+    if (href === '#home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const target = document.querySelector(href);
     if (target) {
-      target.scrollIntoView({ behavior: 'smooth' });
+      const navOffset = window.innerWidth < 640 ? 70 : 90;
+      const targetPos = target.getBoundingClientRect().top + window.scrollY - navOffset;
+      window.scrollTo({ top: Math.max(0, targetPos), behavior: 'smooth' });
     }
   };
 
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-[env(safe-area-inset-top,0px)] ${
           mobileMenuOpen ? 'hidden' : 'block'
         } ${
           isScrolled
-            ? 'bg-[#050505]/95 backdrop-blur-xl border-b border-white/10 py-3 sm:py-3 sm:bg-transparent sm:backdrop-blur-none sm:border-0'
-            : 'bg-[#050505]/75 backdrop-blur-md py-3 sm:py-5 sm:bg-transparent sm:backdrop-blur-none'
+            ? 'bg-[#050505]/98 backdrop-blur-2xl border-b border-white/10 shadow-[0_4px_30px_rgba(0,0,0,0.8)] py-0 sm:py-3.5 sm:bg-transparent sm:backdrop-blur-none sm:border-transparent sm:shadow-none'
+            : 'bg-[#050505]/95 backdrop-blur-xl border-b border-white/5 py-0 sm:py-5 sm:bg-transparent sm:backdrop-blur-none sm:border-transparent'
         }`}
       >
         <div className="w-full sm:site-container px-4 sm:px-6 md:px-8">
-          <nav className="flex items-center justify-between py-1 sm:py-2.5 sm:px-6 sm:nav-capsule">
+          <nav className="flex items-center justify-between h-16 sm:h-auto sm:py-2.5 sm:px-6 sm:nav-capsule">
             {/* Logo */}
             <a
               href="#home"
               onClick={(e) => handleLinkClick(e, '#home')}
-              className="flex items-center gap-3 group focus:outline-none"
+              className="flex items-center gap-2 group focus:outline-none"
               aria-label="Slice Marketing Agency"
             >
               <img
-                src="/assets/slice-logo-full.png"
-                alt="Slice Marketing Agency Logo"
-                className="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                src="/assets/slice-wordmark.png"
+                alt="Slice Marketing Agency"
+                className="h-8 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </a>
 
@@ -85,12 +91,12 @@ export const Navbar: React.FC<NavbarProps> = ({
               ))}
             </div>
 
-            {/* Actions: Language Toggle & CTA */}
-            <div className="flex items-center gap-3 sm:gap-4">
+            {/* Actions: Language Toggle, CTA & Mobile Menu */}
+            <div className="flex items-center gap-2.5 sm:gap-4">
               {/* Language Switcher */}
               <button
                 onClick={onToggleLang}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-white/10 hover:border-white/30 text-neutral-300 hover:text-white transition-all duration-200 bg-white/5"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-white/15 hover:border-white/30 text-neutral-200 hover:text-white transition-all duration-200 bg-white/5 active:bg-white/10"
                 title={lang === 'en' ? 'التبديل إلى العربية' : 'Switch to English'}
                 aria-label="Toggle Language"
               >
@@ -110,7 +116,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="lg:hidden p-2 rounded-full text-neutral-300 hover:text-white hover:bg-white/10 transition-colors focus:outline-none"
+                className="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg text-neutral-200 hover:text-white hover:bg-white/10 active:bg-white/15 transition-colors focus:outline-none"
                 aria-label="Toggle navigation menu"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -122,19 +128,19 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-50 bg-black/98 backdrop-blur-2xl lg:hidden flex flex-col justify-between p-6 sm:p-8 animate-in fade-in duration-200">
+        <div className="fixed inset-0 z-[60] bg-[#050505]/98 backdrop-blur-2xl lg:hidden flex flex-col justify-between p-6 sm:p-8 pt-[calc(env(safe-area-inset-top,0px)+1.25rem)] animate-in fade-in duration-200">
           <div>
             {/* Drawer Top Bar */}
             <div className="flex items-center justify-between pb-6 border-b border-white/10 mb-8">
               <img
-                src="/assets/slice-logo-full.png"
-                alt="Slice Marketing Agency Logo"
-                className="h-9 w-auto object-contain"
+                src="/assets/slice-wordmark.png"
+                alt="Slice Marketing Agency"
+                className="h-8 w-auto object-contain"
               />
               <div className="flex items-center gap-3">
                 <button
                   onClick={onToggleLang}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-white/10 text-neutral-200 bg-white/5"
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border border-white/15 text-neutral-200 bg-white/5"
                 >
                   <Globe className="w-3.5 h-3.5 text-[#D50000]" />
                   <span>{content.nav.languageToggle}</span>
