@@ -54,31 +54,60 @@ export const BrandIntro: React.FC<BrandIntroProps> = ({
             </div>
           </div>
 
-          {/* Visual Editorial Box */}
+          {/* Visual Editorial Box: The Missing Slice Concept */}
           <div className="lg:col-span-6">
-            <div className="relative rounded-2xl p-6 sm:p-10 bg-gradient-to-br from-[#141414] to-[#0A0A0A] border border-white/10 shadow-xl overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-[#D50000]/10 rounded-full blur-2xl pointer-events-none" />
+            <div className="relative rounded-2xl p-6 sm:p-9 bg-gradient-to-br from-[#141414] via-[#0E0E0E] to-[#080808] border border-white/10 shadow-2xl overflow-hidden group">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-[#D50000]/15 rounded-full blur-3xl pointer-events-none" />
               
-              <div className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#FF3333] mb-2 sm:mb-3">
-                The Slice Standard
+              <div className="flex items-center justify-between mb-4">
+                <div className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-[#FF3333] flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-[#D50000] animate-pulse" />
+                  <span>The Missing Slice Philosophy</span>
+                </div>
+                <div className="text-[10px] font-mono text-neutral-400 bg-white/5 px-2.5 py-1 rounded-md border border-white/10">
+                  EST. GIZA // EG
+                </div>
               </div>
 
-              <div className="font-headline text-lg sm:text-2xl md:text-3xl text-white mb-5 sm:mb-6 leading-snug">
+              {/* Graphic Representation: 4 Quarters */}
+              <div className="my-5 p-4 rounded-xl bg-black/50 border border-white/10 grid grid-cols-2 gap-2.5">
+                <div className="p-3 rounded-lg bg-white/[0.03] border border-white/5 text-left rtl:text-right">
+                  <span className="text-[10px] text-neutral-400 block font-mono">01 // PRODUCT</span>
+                  <span className="text-xs font-bold text-neutral-300">Your Core Offering</span>
+                </div>
+                <div className="p-3 rounded-lg bg-white/[0.03] border border-white/5 text-left rtl:text-right">
+                  <span className="text-[10px] text-neutral-400 block font-mono">02 // OPERATIONS</span>
+                  <span className="text-xs font-bold text-neutral-300">Your Internal Drive</span>
+                </div>
+                <div className="p-3 rounded-lg bg-white/[0.03] border border-white/5 text-left rtl:text-right">
+                  <span className="text-[10px] text-neutral-400 block font-mono">03 // VISION</span>
+                  <span className="text-xs font-bold text-neutral-300">Your Market Goals</span>
+                </div>
+                <div className="p-3 rounded-lg bg-[#D50000]/15 border-2 border-[#D50000] text-left rtl:text-right shadow-[0_0_20px_rgba(213,0,0,0.3)] relative overflow-hidden group-hover:bg-[#D50000]/25 transition-all">
+                  <span className="text-[10px] text-[#FF4D4D] block font-mono font-bold">04 // THE MISSING SLICE</span>
+                  <span className="text-xs font-black text-white flex items-center gap-1">
+                    SLICE Agency <span className="text-[#FF4D4D]">★</span>
+                  </span>
+                  <span className="text-[9px] text-neutral-300 block mt-0.5">Viral Retention & Paid ROAS</span>
+                </div>
+              </div>
+
+              <div className="font-headline text-lg sm:text-2xl text-white mb-4 leading-snug">
                 WE DO NOT PRODUCE CONTENT FOR THE ALGORITHM ALONE. WE ENGINEER FOR HUMAN DESIRE.
               </div>
 
-              <div className="space-y-2.5 sm:space-y-3 pt-4 border-t border-white/10">
+              <div className="space-y-2.5 pt-4 border-t border-white/10">
                 <div className="flex items-center gap-3 text-xs sm:text-sm text-neutral-300">
                   <CheckCircle2 className="w-4 h-4 text-[#D50000] flex-shrink-0" />
-                  <span>High-retention hooks engineered for MENA attention spans</span>
+                  <span>High-retention hooks engineered for MENA consumer attention</span>
                 </div>
                 <div className="flex items-center gap-3 text-xs sm:text-sm text-neutral-300">
                   <CheckCircle2 className="w-4 h-4 text-[#D50000] flex-shrink-0" />
-                  <span>Full-funnel media buying tuned for blended profitability</span>
+                  <span>Full-funnel media buying tuned for blended profitability and sales</span>
                 </div>
                 <div className="flex items-center gap-3 text-xs sm:text-sm text-neutral-300">
                   <CheckCircle2 className="w-4 h-4 text-[#D50000] flex-shrink-0" />
-                  <span>Senior creative leadership actively directing every sprint</span>
+                  <span>Official partner network across Cairo, Giza, and the Gulf</span>
                 </div>
               </div>
             </div>

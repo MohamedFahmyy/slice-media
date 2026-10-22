@@ -377,7 +377,28 @@ export const Contact: React.FC<ContactProps> = ({
                 DIRECT INTAKE CHANNELS
               </h3>
 
-              <div className="space-y-5">
+              <div className="space-y-4">
+                {/* Official Facebook Community Card */}
+                <a
+                  href={content.brandMeta?.facebookUrl || "https://www.facebook.com/share/1AJhc9aHwe/"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-[#1877F2]/10 hover:bg-[#1877F2]/20 border border-[#1877F2]/30 transition-all duration-200 group shadow-[0_0_15px_rgba(24,119,242,0.15)]"
+                >
+                  <div className="w-10 h-10 rounded-full bg-[#1877F2]/20 border border-[#1877F2]/50 flex items-center justify-center text-[#1877F2] group-hover:scale-110 transition-transform">
+                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-[11px] uppercase font-bold text-[#5AA7FF]">Official Facebook Community</div>
+                    <div className="text-sm font-semibold text-white flex items-center justify-between">
+                      <span>Slice Marketing Agency</span>
+                      <span className="text-[10px] font-mono text-[#5AA7FF] bg-[#1877F2]/20 px-2 py-0.5 rounded-full">3K+ Followers</span>
+                    </div>
+                  </div>
+                </a>
+
                 <a
                   href="mailto:partnerships@slicemedia.agency"
                   className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-colors group"
@@ -392,7 +413,7 @@ export const Contact: React.FC<ContactProps> = ({
                 </a>
 
                 <a
-                  href={`https://wa.me/${whatsAppNumber}`}
+                  href={`https://wa.me/201000000000`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 transition-colors group"
@@ -402,7 +423,7 @@ export const Contact: React.FC<ContactProps> = ({
                   </div>
                   <div>
                     <div className="text-[11px] uppercase font-bold text-neutral-400">WhatsApp Partnership Desk</div>
-                    <div className="text-sm font-semibold text-white">+20 (100) 000-0000 (Placeholder)</div>
+                    <div className="text-sm font-semibold text-white">Direct Chat Support (Giza & Cairo)</div>
                   </div>
                 </a>
               </div>

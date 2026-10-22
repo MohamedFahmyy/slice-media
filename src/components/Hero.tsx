@@ -42,11 +42,33 @@ export const Hero: React.FC<HeroProps> = ({
           {/* Left Column: Bold Editorial Typography & CTAs */}
           <div className="lg:col-span-7 flex flex-col justify-center text-left rtl:text-right">
             
-            {/* Top Subhead Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D50000]/10 border border-[#D50000]/30 text-[#FF3333] text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-5 sm:mb-8 w-fit shadow-[0_0_12px_rgba(213,0,0,0.2)]">
-              <span className="pulse-dot" />
-              <span>{content.hero.badge}</span>
+            {/* Top Subhead Badge & Facebook Verified Pill */}
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3 mb-5 sm:mb-8">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#D50000]/10 border border-[#D50000]/30 text-[#FF3333] text-[11px] sm:text-xs font-bold uppercase tracking-wider shadow-[0_0_12px_rgba(213,0,0,0.2)]">
+                <span className="pulse-dot" />
+                <span>{content.hero.badge}</span>
+              </div>
+
+              <a
+                href={content.brandMeta?.facebookUrl || "https://www.facebook.com/share/1AJhc9aHwe/"}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#1877F2]/10 hover:bg-[#1877F2]/20 border border-[#1877F2]/30 text-white text-[11px] sm:text-xs font-bold transition-all duration-200 hover:scale-105 group/fb shadow-[0_0_15px_rgba(24,119,242,0.15)]"
+              >
+                <svg className="w-3.5 h-3.5 fill-[#1877F2] group-hover/fb:scale-110 transition-transform" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+                <span>{content.brandMeta?.facebookBadge || "Official Page • 3K+ Followers"}</span>
+                <ArrowUpRight className="w-3 h-3 text-neutral-400 group-hover/fb:text-white" />
+              </a>
             </div>
+
+            {/* Pre-headline Agency Hook */}
+            {content.hero.preHeadline && (
+              <div className="font-headline tracking-widest text-[#FF3333] text-sm sm:text-lg md:text-xl uppercase mb-2 font-bold">
+                {content.hero.preHeadline}
+              </div>
+            )}
 
             {/* Massive Editorial Headline */}
             <h1 className="font-headline text-3xl xs:text-4xl sm:text-6xl md:text-7xl xl:text-8xl text-white leading-[0.98] rtl:leading-[1.18] tracking-tight mb-5 sm:mb-8">
@@ -86,11 +108,11 @@ export const Hero: React.FC<HeroProps> = ({
             <div className="pt-6 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-6">
               <div>
                 <div className="text-xs uppercase tracking-wider text-neutral-400 font-semibold mb-1">
-                  Target Markets
+                  Agency Base
                 </div>
                 <div className="text-sm font-bold text-white flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#D50000]" />
-                  <span>Egypt & GCC (Gulf)</span>
+                  <span>Giza & Cairo, Egypt</span>
                 </div>
               </div>
 
@@ -106,11 +128,11 @@ export const Hero: React.FC<HeroProps> = ({
 
               <div className="col-span-2 sm:col-span-1">
                 <div className="text-xs uppercase tracking-wider text-neutral-400 font-semibold mb-1">
-                  Optimization Pace
+                  Facebook Community
                 </div>
                 <div className="text-sm font-bold text-white flex items-center gap-1.5">
-                  <TrendingUp className="w-4 h-4 text-[#D50000]" />
-                  <span>Daily Iteration</span>
+                  <TrendingUp className="w-4 h-4 text-[#1877F2]" />
+                  <span>3,000+ Followers</span>
                 </div>
               </div>
             </div>

@@ -69,6 +69,15 @@ export interface VideoStripSection {
 }
 
 export interface SiteContent {
+  brandMeta: {
+    tagline: string;
+    taglineSub: string;
+    agencyName: string;
+    location: string;
+    facebookUrl: string;
+    facebookBadge: string;
+    facebookCta: string;
+  };
   nav: {
     home: string;
     about: string;
@@ -82,6 +91,7 @@ export interface SiteContent {
   };
   hero: {
     badge: string;
+    preHeadline?: string;
     headlinePart1: string;
     headlineHighlight: string;
     headlinePart2: string;
@@ -92,6 +102,7 @@ export interface SiteContent {
     viewsTicker: string;
     reelLabel: string;
     viralHookBadge: string;
+    facebookBadgeText?: string;
   };
   intro: {
     badge: string;
@@ -182,6 +193,15 @@ export interface SiteContent {
 
 export const contentMap: Record<Language, SiteContent> = {
   en: {
+    brandMeta: {
+      tagline: "The Missing Slice Of Your Business",
+      taglineSub: "Creative Social & Performance Growth Agency",
+      agencyName: "Slice Marketing Agency",
+      location: "Giza & Cairo, Egypt",
+      facebookUrl: "https://www.facebook.com/share/1AJhc9aHwe/",
+      facebookBadge: "Official Community • 3,000+ Followers",
+      facebookCta: "Visit Facebook Page",
+    },
     nav: {
       home: "Home",
       about: "About",
@@ -194,17 +214,19 @@ export const contentMap: Record<Language, SiteContent> = {
       languageToggle: "العربية",
     },
     hero: {
-      badge: "Creative Social & Performance Agency",
-      headlinePart1: "WE MAKE BRANDS",
-      headlineHighlight: "IMPOSSIBLE",
-      headlinePart2: "TO IGNORE.",
-      supportingText: "Creative strategies, scroll-stopping content, and performance-driven campaigns that help brands stand out and grow across Egypt and the Gulf.",
-      primaryCta: "Let's Build Something",
+      badge: "Slice Marketing Agency // Giza & Cairo",
+      preHeadline: "WE'RE SLICE AGENCY!",
+      headlinePart1: "THE MISSING",
+      headlineHighlight: "SLICE",
+      headlinePart2: "OF YOUR BUSINESS.",
+      supportingText: "We engineer scroll-stopping viral content, high-retention video production, and performance-driven ad campaigns that turn feeds into predictable revenue across Egypt and the Gulf.",
+      primaryCta: "Get Your Missing Slice",
       secondaryCta: "Explore Our Work",
       activeCampaignsLabel: "Active Creator Network",
       viewsTicker: "100% Focused on Brand Retention & Conversions",
-      reelLabel: "Slice Production Studio // MENA",
+      reelLabel: "Slice Production Studio // Cairo & Giza",
       viralHookBadge: "High-Retention Creative",
+      facebookBadgeText: "3,000+ Community On Facebook",
     },
     intro: {
       badge: "Brand Introduction",
@@ -565,6 +587,15 @@ export const contentMap: Record<Language, SiteContent> = {
     }
   },
   ar: {
+    brandMeta: {
+      tagline: "القطعة المفقودة لنجاح ونمو أعمالك",
+      taglineSub: "وكالة متخصصة في المحتوى الإبداعي والنمو الرقمي",
+      agencyName: "وكالة سلايس للتسويق الرقمي",
+      location: "الجيزة والقاهرة، مصر",
+      facebookUrl: "https://www.facebook.com/share/1AJhc9aHwe/",
+      facebookBadge: "الصفحة الرسمية • أكثر من ٣,٠٠٠ متابع",
+      facebookCta: "زوروا صفحتنا على فيسبوك",
+    },
     nav: {
       home: "الرئيسية",
       about: "من نحن",
@@ -573,21 +604,23 @@ export const contentMap: Record<Language, SiteContent> = {
       whyUs: "لماذا سلايس",
       process: "منهجية العمل",
       contact: "تواصل معنا",
-      ctaButton: "ابدأ مشروعك",
+      ctaButton: "احجز جلستك",
       languageToggle: "English",
     },
     hero: {
-      badge: "وكالة متخصصة في المحتوى الإبداعي والنمو الرقمي",
-      headlinePart1: "نجعل علامتك التجارية",
-      headlineHighlight: "مستحيلة",
-      headlinePart2: "التجاهل.",
-      supportingText: "استراتيجيات إبداعية، ومحتوى يخطف الانتباه، وحملات تسويقية قائمة على الأداء لمساعدة الشركات الطموحة على التميز والنمو في مصر والخليج العربي.",
-      primaryCta: "لنصنع شيئاً فارقاً",
+      badge: "وكالة سلايس للتسويق الرقمي // الجيزة والقاهرة",
+      preHeadline: "نحن وكالة سلايس!",
+      headlinePart1: "القطعة",
+      headlineHighlight: "المفقودة",
+      headlinePart2: "لنمو أعمالك ونجاحها.",
+      supportingText: "نصنع محتوى إبداعي فيروسي يخطف الأنظار، واستراتيجيات فيديو تصنع ولاء الجمهور، وحملات إعلانية ممولة قائمة على الأداء والعائد الاستثماري الحقيقي في مصر والخليج العربي.",
+      primaryCta: "اكتشف قطعتك المفقودة",
       secondaryCta: "استكشف أعمالنا",
       activeCampaignsLabel: "شبكة صناع محتوى معتمدة",
-      viewsTicker: "تركيز ١٠٠٪ على ولاء الجمهور والمبيعات",
-      reelLabel: "استوديو إنتاج سلايس // الشرق الأوسط",
+      viewsTicker: "تركيز ١٠٠٪ على ولاء الجمهور ومضاعفة المبيعات",
+      reelLabel: "استوديو إنتاج سلايس // القاهرة والجيزة",
       viralHookBadge: "محتوى يحبس الأنفاس",
+      facebookBadgeText: "مجتمع سلايس على فيسبوك (+3K)",
     },
     intro: {
       badge: "مقدمة عن الوكالة",
